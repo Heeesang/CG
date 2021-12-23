@@ -1,0 +1,26 @@
+ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+}
+a {
+  color: #ffff;
+  text-decoration: none;
+}
+a:hover {
+  transition: 0.3s;
+  color: #ebf4f6;
+}
+ul li {
+  margin: 0 50px;
+}
+.Header {
+  width: 100%;
+  position: fixed;
+  background: #484848;
+}
+.Header_nav {
+  display: flex;
+  padding: 15px;
+  justify-content: space-between;
+}

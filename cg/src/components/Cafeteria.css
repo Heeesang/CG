@@ -1,0 +1,10 @@
+.Cafeteria_cont {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+.Cafeteria_cont h1 {
+  color: black;
+  margin: 0;
+}
