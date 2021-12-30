@@ -16,14 +16,6 @@ const Cafeteria = () => {
       );
       console.log(response2.data.schoolInfo[1].row[0]);
       setCode(response2.data.schoolInfo[1].row);
-    } catch (e) {
-      console.log(e);
-    }
-    setIsLoading(false);
-  };
-
-  const cafedata = async () => {
-    try {
       const response = await axios.get(
         `https://open.neis.go.kr/hub/mealServiceDietInfo?Key=813eb00ac6ae4e4b9bf6cc5254404138&Type=json&pIndex=1&pSize=100&ATPT_OFCDC_SC_CODE=F10&SD_SCHUL_CODE=${code.SD_SCHUL_CODE}`
       );
@@ -32,8 +24,8 @@ const Cafeteria = () => {
     } catch (e) {
       console.log(e);
     }
+    setIsLoading(false);
   };
-
   const onClick = () => {
     fetchData();
   };
@@ -49,7 +41,7 @@ const Cafeteria = () => {
       <div className="Cafeteria_cont">
         <h2>학교 입력</h2>
         <input placeholder="학교입력.." value={value} onChange={onChange} />
-        <button onClick={(fetchData, cafedata)}>확인</button>
+        <button onClick={fetchData}>확인</button>
         {code.length !== 0 ? <ul onClick={onClick}>{list}</ul> : <></>}
       </div>
     );
