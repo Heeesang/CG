@@ -1,5 +1,6 @@
 .Cafeteria_cont {
   display: flex;
+  flex-direction: column;
   height: 100vh;
   justify-content: center;
   align-items: center;
@@ -7,4 +8,9 @@
 .Cafeteria_cont h1 {
   color: black;
   margin: 0;
+}
+
+.Cafeteria_cont button {
+  width: 150px;
+  height: 30px;
 }
