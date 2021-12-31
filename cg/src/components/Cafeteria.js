@@ -16,8 +16,15 @@ const Cafeteria = () => {
       );
       console.log(response2.data.schoolInfo[1].row[0]);
       setCode(response2.data.schoolInfo[1].row);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const fetchData2 = async (code) => {
+    try {
       const response = await axios.get(
-        `https://open.neis.go.kr/hub/mealServiceDietInfo?Key=813eb00ac6ae4e4b9bf6cc5254404138&Type=json&pIndex=1&pSize=100&ATPT_OFCDC_SC_CODE=F10&SD_SCHUL_CODE=${code.SD_SCHUL_CODE}`
+        `https://open.neis.go.kr/hub/mealServiceDietInfo?Key=813eb00ac6ae4e4b9bf6cc5254404138&Type=json&pIndex=1&pSize=100&ATPT_OFCDC_SC_CODE=F10&SD_SCHUL_CODE=${code}`
       );
       console.log(response);
       setData(response.data.mealServiceDietInfo[1].row);
@@ -26,14 +33,13 @@ const Cafeteria = () => {
     }
     setIsLoading(false);
   };
-  const onClick = () => {
-    fetchData();
-  };
 
   const onChange = (e) => {
     setValue(e.target.value);
   };
-
+  const onClick = () => {
+    fetchData2(code[0].SD_SCHUL_CODE);
+  };
   const list = code.map((name) => <li key={name.SCHUL_NM}>{name.SCHUL_NM}</li>);
 
   if (isLoading) {
@@ -50,8 +56,6 @@ const Cafeteria = () => {
   return (
     <div className="Cafeteria">
       <div className="Cafeteria_cont">
-        <input value={value} onChange={onChange} />
-        <button onClick={fetchData} />
         <h2>{Parser(datas[0].DDISH_NM)}</h2>
       </div>
     </div>

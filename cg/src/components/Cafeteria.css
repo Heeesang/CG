@@ -4,6 +4,7 @@
   height: 100vh;
   justify-content: center;
   align-items: center;
+  background: linear-gradient(115.04deg, #8affab 0%, #6a9dff 100%);
 }
 .Cafeteria_cont h1 {
   color: black;
