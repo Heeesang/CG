@@ -1,17 +1,59 @@
-.Cafeteria_cont {
+.Cafeteria {
   display: flex;
-  flex-direction: column;
+  align-items: center;
   height: 100vh;
   justify-content: center;
-  align-items: center;
   background: linear-gradient(115.04deg, #8affab 0%, #6a9dff 100%);
 }
+.Cafeteria_cont {
+  width: 35%;
+  height: 550px;
+  background: #ebf4f6;
+  border-radius: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.25);
+}
 .Cafeteria_cont h1 {
-  color: black;
-  margin: 0;
+  color: #0000;
+}
+.Cafeteria_cont input {
+  width: 60%;
+  height: 50px;
+  margin: 40px 0;
+  border: 0px;
+  border-radius: 10px;
+}
+.Cafeteria_cont input:focus {
+  box-shadow: 0 0 0 3px #6a9dff;
+  outline: none;
+}
+.Cafeteria_cont button {
+  width: 60%;
+  height: 45px;
+  border: 0;
+  color: #ebf4f6;
+  background: #6a9dff;
+  border-radius: 10px;
 }
 
-.Cafeteria_cont button {
-  width: 150px;
-  height: 30px;
+.Cafeteria_cont .list {
+  max-width: 60%;
+  max-height: 50px;
+}
+.Cafeteria_cont .list ul {
+  flex-direction: column;
+}
+
+.Cafeteria_cont .btn {
+  display: flex;
+  padding-bottom: 50px;
+}
+.Cafeteria_cont .btn button {
+  margin: 0px 5px;
+  font-size: 20px;
+  color: #000;
+  background: #0000;
 }
