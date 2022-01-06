@@ -16,13 +16,7 @@ function Header() {
                 <Link to="/cafeteria">급식</Link>
               </li>
               <li>
-                <Link to="/calendar">학사일정</Link>
-              </li>
-              <li>
-                <Link to="/schedule">시간표</Link>
-              </li>
-              <li>
-                <Link to="/Login">로그인</Link>
+                <Link to="/reserve">빌리기</Link>
               </li>
             </ul>
           </div>

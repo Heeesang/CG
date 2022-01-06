@@ -1,5 +1,6 @@
 .Cafeteria {
   display: flex;
+  flex-direction: column;
   align-items: center;
   height: 100vh;
   justify-content: center;
@@ -30,7 +31,7 @@
   box-shadow: 0 0 0 3px #6a9dff;
   outline: none;
 }
-.Cafeteria_cont button {
+.Cafeteria button {
   width: 60%;
   height: 45px;
   border: 0;
@@ -47,13 +48,22 @@
   flex-direction: column;
 }
 
-.Cafeteria_cont .btn {
+.Cafeteria .btn {
   display: flex;
-  padding-bottom: 50px;
+  background: #ebf4f6;
+  margin-bottom: 20px;
+  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
 }
-.Cafeteria_cont .btn button {
+.Cafeteria .btn button {
+  width: 100px;
   margin: 0px 5px;
   font-size: 20px;
   color: #000;
   background: #0000;
+  background: #ebf4f6;
+  font-weight: bold;
+}
+.Cafeteria .btn button:focus {
+  color: #6a9dff;
 }

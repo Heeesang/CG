@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./Cafeteria.css";
 import Parser from "html-react-parser";
@@ -8,7 +8,8 @@ const Cafeteria = () => {
   const [value, setValue] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const [code, setCode] = useState([]);
-  const [mname, setMname] = useState("");
+  const [num, setNum] = useState(0);
+  const [meal, setMeal] = useState("");
 
   const today = () => {
     let now = new Date();
@@ -34,7 +35,7 @@ const Cafeteria = () => {
     }
   };
 
-  const fetchData2 = async (code, date) => {
+  const fetchData2 = async (code) => {
     try {
       const response = await axios.get(
         `https://open.neis.go.kr/hub/mealServiceDietInfo?Key=813eb00ac6ae4e4b9bf6cc5254404138&Type=json&pIndex=1&pSize=100&ATPT_OFCDC_SC_CODE=F10&SD_SCHUL_CODE=${code}&MLSV_YMD=${today()}`
@@ -54,6 +55,9 @@ const Cafeteria = () => {
   const onClick = () => {
     const shul_code = code.map((num) => num.SD_SCHUL_CODE);
     fetchData2(shul_code);
+  };
+  const numChange = (e) => {
+    setNum(e.target.value);
   };
 
   const list = code.map((name) => <li key={name.SCHUL_NM}>{name.SCHUL_NM}</li>);
@@ -79,14 +83,35 @@ const Cafeteria = () => {
 
   return (
     <div className="Cafeteria">
+      <div className="btn">
+        {datas.length === 3 ? (
+          <>
+            <button onClick={() => setNum(0)} onChange={() => setMeal("아침")}>
+              아침
+            </button>
+            <button onClick={() => setNum(1)}>점심</button>
+            <button onClick={() => setNum(2)}>저녁</button>
+          </>
+        ) : (
+          <>
+            <button onClick={() => setNum(-1)} onChange={() => setMeal("아침")}>
+              아침
+            </button>
+            <button onClick={() => setNum(0)}>점심</button>
+            <button onClick={() => setNum(1)}>저녁</button>
+          </>
+        )}
+      </div>
       <div className="Cafeteria_cont">
-        <div className="btn">
-          <button value={mname}>아침</button>
-          <button>점심</button>
-          <button>저녁</button>
-        </div>
+        <h2></h2>
         <div className="menu">
-          <h2>{Parser(datas[0].DDISH_NM)}</h2>
+          {datas[num] === undefined ? (
+            <div>
+              <h2>밥 없어요 집에서 드세요!</h2>
+            </div>
+          ) : (
+            <h2>{Parser(datas[num].DDISH_NM)}</h2>
+          )}
         </div>
       </div>
     </div>
